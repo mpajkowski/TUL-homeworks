@@ -1,9 +1,9 @@
 #!/bin/bash
 # trojkat.sh
 
-declare -i bok1=$1
-declare -i bok2=$2
-declare -i bok3=$3
+declare -i bok1="$1"
+declare -i bok2="$2"
+declare -i bok3="$3"
 declare -i warunek
 
 function jestCalkowita {
@@ -37,11 +37,10 @@ fi
 ustawWarunek	
 
 case "$warunek" in
-1) echo "Podane nieprawidłowe dane. Proszę wprowadzić jako parametry liczby całkowite." ;;
-2) if( "$bok1" + "$bok2" > "$bok3" && "$bok3" + "$bok2" > "$bok1" && "$bok1" + "$bok3" > "$bok2" )
-	then 
+1)  echo "Podane nieprawidłowe dane. Proszę wprowadzić jako parametry liczby całkowite." ;;
+2)  if(( "$bok1" + "$bok2" > "$bok3" && "$bok3" + "$bok2" > "$bok1" && "$bok1" + "$bok3" > "$bok2" )) ; then
 		echo "Z podanych odcinków można utworzyć trójkąt."
 	else
 		echo "Z podanych długości odcinków nie jest możliwe utworzenie trójkąta."
-	fi
+    fi
 esac
