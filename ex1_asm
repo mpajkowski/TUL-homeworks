@@ -5,8 +5,8 @@
 Start:
 	jmp    main
 
-	msg1			DB     "Wynik calosc: $"
-	msg2			DB 	   10,13,"Wynik reszta: $"
+	msg1		DB     "Wynik calosc: $"
+	msg2		DB     10,13,"Wynik reszta: $"
 	a               DW     14h							
 	b               DW     0Ah												
 	d               DW     03h							
@@ -15,7 +15,7 @@ Start:
 
 main proc near
 	mov		ax, a
-	mov		bx,	4
+	mov		bx, 4
 	mul		bx
 	mov		bx, ax
 	mov		ax, b
@@ -28,7 +28,7 @@ main proc near
 	mov		WynikCalosc, ax
 	mov		WynikReszta, dx
 
-	mov		dx,	OFFSET msg1
+	mov		dx, OFFSET msg1
 	mov		ah, 09h
 	int		21h
 
@@ -43,7 +43,7 @@ main proc near
 	mov		ah, 09h
 	int		21h
 
-	mov		ax,	WynikReszta
+	mov		ax, WynikReszta
 	add		ax, 48
 	mov		dx, ax
 	xor		ax, ax
